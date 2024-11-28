@@ -1,0 +1,17 @@
+ CREATE A PROCEDURE
+SQL> CREATE OR REPLACE PROCEDURE greet_user (p_name IN VARCHAR2) as
+   BEGIN
+       DBMS_OUTPUT.PUT_LINE('hello,' || p_name || '!');
+    END;
+    /
+
+Procedure created.
+
+SQL> SET SERVEROUTPUT ON;
+SQL>  BEGIN
+           greet_user('aakash');
+        END;
+        /
+hello,aakash!
+
+PL/SQL procedure successfully completed.
