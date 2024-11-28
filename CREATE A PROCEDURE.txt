@@ -15,3 +15,43 @@ SQL>  BEGIN
 hello,aakash!
 
 PL/SQL procedure successfully completed.
+
+
+
+SQL> SET SERVEROUTPUT ON;
+SQL>  BEGIN
+  2         greet_user('aakash');
+  3      END;
+  4      /
+hello,aakash!
+
+PL/SQL procedure successfully completed.
+
+
+SQL> SET SERVEROUTPUT ON;
+SQL>  BEGIN
+  2         greet_user('aakash');
+  3      END;
+  4      /
+hello,aakash!
+
+PL/SQL procedure successfully completed.
+*************--------------------***************************
+   TRIGGERS
+SQL> CREATE OR REPLACE TRIGGER e_insert
+    AFTER INSERT ON employees_table
+    FOR EACH ROW
+    BEGIN
+      DBMS_OUTPUT.PUT_LINE('NEW EMPLOYEE ADDED:' || :NEW.F_NAME || '' || :NEW.L_NAME);
+    END;
+    /
+
+Trigger created.
+
+ 
+SQL> insert into employees_table values (100,'raj','dd',101,23000, to_date('2024-01-01','yyyy-mm-dd') ) ;
+NEW EMPLOYEE ADDED:rajdd
+
+1 row created.
+
+
